@@ -19,7 +19,6 @@ namespace GalaxyGuide.RomanNumeralsConverter
             _validationRules.SubtractionValidation(roman);
 
             int i = 0;              // symbol pointer
-            //int prevVal = 9999;     // value of symbol(s) in the previous iteration
             int res = 0;            // final result
 
             while(i < roman.Length)
@@ -41,7 +40,6 @@ namespace GalaxyGuide.RomanNumeralsConverter
                     {
                         // take only the first value
                         res += val1;
-                        //prevVal = val1;
                         i++;
                     }
                     else
@@ -64,6 +62,11 @@ namespace GalaxyGuide.RomanNumeralsConverter
             }
 
             return res;
+        }
+
+        public Dictionary<string, int> GetSymbols()
+        {
+            return Symbols.GetSymbols();
         }
     }
 }
