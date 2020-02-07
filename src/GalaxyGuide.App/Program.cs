@@ -10,6 +10,8 @@ namespace GalaxyGuide.App
     {
         static void Main(string[] args)
         {
+            PrintBanner();
+
             IGalaxyEngine engine = new GalaxyEngine();
             string s = "";
             
@@ -71,6 +73,30 @@ namespace GalaxyGuide.App
             if(s != "OK")
                 System.Console.WriteLine(s);
 
+            System.Console.Write("Galaxy Market>");
+            Console.ReadLine();
+        }
+
+        static void PrintBanner()
+        {
+            // https://devops.datenkollektiv.de/banner.txt/index.html
+
+            System.Console.WriteLine("\n");
+            
+            Console.WriteLine(@"   ___         _                     ");
+            Console.WriteLine(@"  / _ \  __ _ | |  __ _ __  __ _   _ ");
+            Console.WriteLine(@" / /_\/ / _` || | / _` |\ \/ /| | | |");
+            Console.WriteLine(@"/ /_\\ | (_| || || (_| | >  < | |_| |");
+            Console.WriteLine(@"\____/  \__,_||_| \__,_|/_/\_\ \__, |");
+            Console.WriteLine(@"                               |___/ ");
+            Console.WriteLine(@"                      _           _   ");
+            Console.WriteLine(@"  /\/\    __ _  _ __ | | __  ___ | |_ ");
+            Console.WriteLine(@" /    \  / _` || '__|| |/ / / _ \| __|");
+            Console.WriteLine(@"/ /\/\ \| (_| || |   |   < |  __/| |_ ");
+            Console.WriteLine(@"\/    \/ \__,_||_|   |_|\_\ \___| \__|");            
+
+            System.Console.WriteLine("\n");
+            
         }
     }
 }
