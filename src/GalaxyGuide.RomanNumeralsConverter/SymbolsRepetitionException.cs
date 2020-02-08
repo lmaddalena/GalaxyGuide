@@ -8,19 +8,23 @@ namespace GalaxyGuide.RomanNumeralsConverter
         public int Position { get; private set; }   
         public string Symbol { get; private set; }   
 
+        public string RomanNumeral { get; private set; }
+
         public SymbolsRepetitionException() 
         { }
 
-        public SymbolsRepetitionException(string message, int position, string symbol) : base(message) 
+        public SymbolsRepetitionException(string message, int position, string symbol, string romanNumeral) : base(message) 
         { 
             this.Position = position;
             this.Symbol = symbol;
+            this.RomanNumeral = romanNumeral;
         }
 
-        public SymbolsRepetitionException(string message, int position, string symbol, System.Exception inner) : base(message, inner) 
+        public SymbolsRepetitionException(string message, int position, string symbol, string romanNumeral, System.Exception inner) : base(message, inner) 
         { 
             this.Position = position;
             this.Symbol = symbol;
+            this.RomanNumeral = romanNumeral;
         }
         
         protected SymbolsRepetitionException(

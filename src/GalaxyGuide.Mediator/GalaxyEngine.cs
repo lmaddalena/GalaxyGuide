@@ -26,6 +26,8 @@ namespace GalaxyGuide.Mediator
 
         public string Evaluate(string sentence)
         {
+            sentence = sentence.Trim();
+            
             List<ParseResult> results = new List<ParseResult>();
             ParseResult pr; 
 

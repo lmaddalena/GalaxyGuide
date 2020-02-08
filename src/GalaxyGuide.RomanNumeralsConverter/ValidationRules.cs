@@ -43,25 +43,25 @@ namespace GalaxyGuide.RomanNumeralsConverter
                     else
                     {
                         if(sym1 == "I" && sym2 != "I" && sym2 != "V" && sym2 != "X")
-                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'I' can be subtracted from 'V' and 'X' only", i), i);
+                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'I' can be subtracted from 'V' and 'X' only", i), i, roman);
 
                         if(sym1 == "X" && sym2 != "X" && sym2 != "L" && sym2 != "C")
-                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'X' can be subtracted from 'L' and 'C' only", i), i);
+                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'X' can be subtracted from 'L' and 'C' only", i), i, roman);
 
                         if(sym1 == "C" && sym2 != "C" && sym2 != "D" && sym2 != "M")
-                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'C' can be subtracted from 'D' and 'M' only", i), i);
+                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'C' can be subtracted from 'D' and 'M' only", i), i, roman);
 
                         if(sym1 == "V" && sym2 != "V")
-                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'V' can never be subtracted", i), i);
+                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'V' can never be subtracted", i), i, roman);
 
                         if(sym1 == "L" && sym2 != "L")
-                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'L' can never be subtracted", i), i);
+                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'L' can never be subtracted", i), i, roman);
 
                         if(sym1 == "D" && sym2 != "D")
-                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'D' can never be subtracted", i), i);
+                            throw new InvalidSubtractionException (string.Format("Invalid subtraction at position {0}. 'D' can never be subtracted", i), i, roman);
 
                         if(prevVal < (val2 - val1))
-                            throw new InvalidSubtractionException("Invalid subtraction at position " + (i + 1), (i + 1));
+                            throw new InvalidSubtractionException("Invalid subtraction at position " + (i + 1), (i + 1), roman);
 
                         // take both values
                         prevVal = (val2 - val1);
@@ -96,16 +96,18 @@ namespace GalaxyGuide.RomanNumeralsConverter
                     // check symbols "DLV"
                     if(count > 1 && (currSym == "D" || currSym == "L" || currSym == "V" ))
                         throw new SymbolsRepetitionException(
-                            string.Format("Symbol repeated more than once: symbol: {0}, position:{1}", currSym, i), 
+                            string.Format("Symbol repeated more than once: symbol: {0}, position: {1}", currSym, i), 
                             i, 
-                            currSym);
+                            currSym,
+                            roman);
                     
                     // check symbols "IXCM"
                     if(count > 3 && (currSym == "I" || currSym == "X" || currSym == "C" || currSym == "M"))
                         throw new SymbolsRepetitionException(
-                            string.Format("Symbol repeated more than three times: symbol: {0}, position:{1}", currSym, i), 
+                            string.Format("Symbol repeated more than three times: symbol: {0}, position: {1}", currSym, i), 
                             i, 
-                            currSym);                    
+                            currSym,
+                            roman);                    
                 }
                 else
                 {
@@ -127,7 +129,7 @@ namespace GalaxyGuide.RomanNumeralsConverter
             { 
                 currSym = roman.Substring(i, 1); 
                 if(!symbols.ContainsKey(currSym))
-                    throw new SymbolValidationException("Invalid symbol at position " + i, i);
+                    throw new SymbolValidationException("Invalid symbol at position " + i, i, roman);
 
                 i++;
             }
