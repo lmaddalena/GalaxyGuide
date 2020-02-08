@@ -61,12 +61,12 @@ namespace GalaxyGuide.Mediator
                     pr = r;
             }
 
-            string s = "I have no idea what you are talking about\n\n";
+            string s = "I have no idea what you are talking about";
 
             // compose Syntax Error message
             if(pr.GetPathDepth() > 0 && pr.HasSyntaxError)
-            {
-                s += "Syntax Error:\n";
+            {                
+                s += "\n\nSyntax Error:\n";
                 string[] words = sentence.Split(' ');
 
                 s += sentence + "\n";
