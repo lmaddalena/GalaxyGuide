@@ -1,6 +1,7 @@
 # GalaxyGuide
 ## The Merchant's Guide to the Galaxy
 Developed with [Microsoft Dotnet Core 3.1](https://dotnet.microsoft.com/download).
+
 ![.NET Core](https://github.com/lmaddalena/GalaxyGuide/workflows/.NET%20Core/badge.svg?event=push)
 
 The application is composed by 4 components: 
